@@ -4,8 +4,15 @@ const btn = document.querySelector('#submit');
 // ================= CREATE MAP =================
 // https://leafletjs.com/examples/quick-start/
 
+const myIcon = L.icon({
+    iconUrl: './images/icon-location.svg',
+    iconSize: [46, 56],
+    iconAnchor: [22, 94],
+    popupAnchor: [-3, -76],
+});
+
 let mymap = L.map('map').setView([52.37403, 4.88969], 13);
-let marker = L.marker([52.37403, 4.88969]).addTo(mymap);
+let marker = L.marker([52.37403, 4.88969], {icon: myIcon}).addTo(mymap);
 
 marker.bindPopup(`IP Address: <b>192.210.175.100</b><br>Location: <b>Amsterdam, NL </b>`);
 
